@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Mukta:300,400,700");
+@import "css/theme.scss";
+@import "css/date-picker.scss";
+@import "css/data-grid.scss";
+@import "css/clr-overide.scss";
+@import "../node_modules/@clr/icons/clr-icons.min.css";
+@import "../node_modules/@clr/ui/clr-ui.min.css";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/nova-light/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+input[type="text"],
+input[type="password"],
+input[type="email"],
+body .ui-inputtext.ng-dirty.ng-invalid {
+    border: 0;
+    border-bottom: 1px solid #bfbfbf;
+    border-radius: 0;
+}
+
+body .ui-widget {
+    text-decoration: none;
+}
+
+body .main-page {
+    width: 100%;
+}

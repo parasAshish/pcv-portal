@@ -1,0 +1,15 @@
+.contents {
+    padding: 2vh 2vw!important;
+    justify-content: space-evenly;
+}
+
+:host>>>.ui-table .ui-table-thead>tr>th,
+.ui-table .ui-table-tbody>tr>td,
+.ui-table .ui-table-tfoot>tr>td {
+    text-align: left;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 2vh;
+}

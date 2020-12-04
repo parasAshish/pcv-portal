@@ -1,0 +1,31 @@
+.header,
+header.header-2 {
+    background-color: var(--main-theme-color)!important;
+}
+
+.header .branding .clr-icon,
+.header .branding clr-icon,
+header .branding .clr-icon,
+header .branding clr-icon {
+    height: 1rem;
+    width: 1rem;
+}
+
+.logo-image {
+    width: 7rem;
+    padding: 1em;
+    margin-top: 3px;
+}
+
+.link-btn {
+    padding: .75rem 0.8rem !important;
+    color: #fafafa !important;
+    color: #fafafa !important;
+    opacity: .65 !important;
+}
+
+.dropdown-btn {
+    height: 14px !important;
+    width: 14px !important;
+    top: 52% !important;
+}

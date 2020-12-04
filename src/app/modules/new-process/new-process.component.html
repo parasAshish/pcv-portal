@@ -1,0 +1,34 @@
+<div class="contents">
+    <div class="title">Add New Process</div>
+    <div>
+        <div>
+            <input type="text" pInputText [(ngModel)]="processName" autocomplete="off" placeholder="Name" />
+        </div>
+        <BR>
+        <div>
+            <input type="text" pInputText [(ngModel)]="processDesc" autocomplete="off" placeholder="Description" />
+        </div>
+        <BR>
+        <div>
+            <div style="margin-bottom: 0.5em;">
+                <span class="sub-title">Select Components</span>
+                <clr-icon shape="plus" title="Add Component" class="add-new" (click)="navigateNewComponent()"></clr-icon>
+            </div>
+            <p-pickList [source]="sourceComponents" [target]="targetComponents" [responsive]="true" sourceHeader="Source Components" [showSourceControls]="false" [showTargetControls]="false" targetHeader="Target Components" dragdrop="true">
+                <ng-template let-component pTemplate="item">
+                    <div class="ui-helper-clearfix">
+                        {{component.name}}
+                    </div>
+                </ng-template>
+            </p-pickList>
+        </div>
+        <div *ngFor="let item of targetComponents; let indx=index;" class="displayFlex">
+            <div class="task-container" title="Add/Update Component">
+                <div class="task-label"><a [routerLink]="getComponentLink(item)">{{item.name}}</a></div>
+            </div>
+            <i class="pi pi-angle-right arrow" *ngIf="indx < (targetComponents.length - 1)"></i>
+        </div>
+        <BR>
+        <button pButton pRipple type="button" label="Submit" class="p-button-raised"></button>
+    </div>
+</div>

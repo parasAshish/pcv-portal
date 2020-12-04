@@ -1,0 +1,79 @@
+:root {
+    --main-theme-color: #00364D;
+    --main-theme-background-color: #eeeeee;
+    --main-theme-color-50: rgba(37.6%, 49%, 54.5%, 0.541);
+    --main-theme-bg1: #eee;
+    --main-theme-bg2: #fafafa;
+    --tool-btn-active: #6bc1e3;
+    --pipeline-link-stroke: #AF7F10;
+    --pipeline-icon-stroke: #AF7F10;
+    --pipeline-icon-fill: #AF7F10;
+    --modal-link-stroke: #AF7F10;
+    --modal-icon-color: #AF7F10;
+    --modal-backdrop-color: rgba(19.2%, 19.2%, 19.2%, 0.878);
+    --main-box-shadow-card: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+    --main-box-shadow-md2: 0 1px 2px 0 rgba(60, 64, 67, 0.302);
+    --main-box-shadow-card2: rgba(60, 64, 67, 0.3) 0 1px 3px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+    /* layout */
+    --sidebar-width: 14vw;
+    --sidebar-min-width: 260px;
+    /* colors */
+    --red: rgba(77.6%, 15.7%, 15.7%, 0.851);
+    --red2: rgb(168, 56, 93);
+    --grey: rgb(62%, 62%, 62%);
+    --yellow: rgb(100%, 59.6%, 0%);
+    --orange: rgba(84.7%, 26.3%, 8.2%, 0.839);
+    --green: rgb(0%, 58.8%, 53.3%);
+    --green2: rgb(122, 163, 229);
+    --purple: rgba(10.2%, 13.7%, 49.4%, 0.741);
+    --wood: rgb(38%, 38%, 38%);
+    --grey: rgb(62%, 62%, 62%);
+    --white: white;
+    --blue: #607d8b;
+    --bg1: white;
+    --bg2: #fafafa;
+    --card-bg: var(--bg1);
+    --card-fg: var(--main-theme-color);
+    --card-border-color: var(--main-theme-bg2);
+    --chart-text-color: var(--main-theme-color);
+    --chart-title-bg: #2f3646;
+    --chart-card-bg: var(--bg1);
+    --chart-card-bg2: var(--main-theme-bg2);
+    --chart-title-color: var(--bg1);
+    --chart-card-color: var(--bg1);
+    --chart-content-color: var(--bg2);
+    --chart-tooltip-color: var(--bg1);
+    --chart-card-shadow-color: #ffffff18;
+    --chart-card-border-color: #d3d3d382;
+    --chart-border-radius: 4px;
+    [data-theme='dark'] {
+        --main-theme-background-color: #1d262b;
+        --bg1: #2f3646;
+        --bg2: #464f65;
+        --bg3: #525d77;
+        --fg1: white;
+        --card-bg: var(--bg1);
+        --card-fg: var(--fg1);
+        --card-border-color: var(--bg2);
+        --chart-text-color: var(--fg1);
+        --chart-title-bg: var(--bg1);
+        --chart-card-bg: var(--bg2);
+        --chart-card-bg2: var(--bg3);
+        --chart-card-color: var(--fg1);
+        --chart-content-color: var(--bg1);
+        --chart-title-color: var(--fg1);
+        --chart-tooltip-color: var(--fg1);
+        --chart-card-shadow-color: #66666618;
+        --chart-card-border-color: #d3d3d300;
+    }
+    [class^='dashboard'] {
+        --green: rgb(29.8%, 68.6%, 31.4%);
+        --red: rgb(82.7%, 18.4%, 18.4%);
+        --grey: rgb(62%, 62%, 62%);
+        --yellow: rgb(100%, 59.6%, 0%);
+        --green-a: rgba(29.8%, 68.6%, 31.4%, 0.267);
+        --red-a: rgba(82.7%, 18.4%, 18.4%, 0.267);
+        --grey-a: rgba(62%, 62%, 62%, 0.267);
+        --yellow-a: rgba(100%, 59.6%, 0%, 0.267);
+    }
+}

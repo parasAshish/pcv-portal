@@ -1,0 +1,28 @@
+<div class="contents">
+    <div class="title">Add New Component</div>
+    <div>
+        <div>
+            <input type="text" pInputText [(ngModel)]="componentName" autocomplete="off" placeholder="Name" />
+        </div>
+        <BR>
+        <div>
+            <input type="text" pInputText [(ngModel)]="componentDesc" autocomplete="off" placeholder="Description" />
+        </div>
+        <BR>
+        <div>
+            <div style="margin-bottom: 0.5em;">
+                <span class="sub-title">Select Variations</span>
+                <clr-icon shape="plus" title="Add Variation" class="add-new" (click)="navigateNewVariation()"></clr-icon>
+            </div>
+            <p-pickList [source]="sourceVariations" [target]="targetVariations" [responsive]="true" sourceHeader="Source Variations" [showSourceControls]="false" [showTargetControls]="false" targetHeader="Target Variations" dragdrop="true">
+                <ng-template let-variation pTemplate="item">
+                    <div class="ui-helper-clearfix">
+                        {{variation.name}}
+                    </div>
+                </ng-template>
+            </p-pickList>
+        </div>
+        <BR>
+        <button pButton pRipple type="button" label="Submit" class="p-button-raised"></button>
+    </div>
+</div>

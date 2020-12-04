@@ -1,0 +1,33 @@
+<div class="contents">
+    <div class="title">Process Overview</div>
+    <p-table [value]="processList">
+        <ng-template pTemplate="header">
+            <tr>
+                <th width="30%">Name</th>
+                <th width="70%">Description</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-process>
+            <tr>
+                <td width="30%"><a [routerLink]="process.name">{{process.name}}</a></td>
+                <td width="70%">{{process.desc}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td [attr.colspan]="'45'">
+                    No records found
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<p-blockUI [blocked]=blockedFlag>
+    <table width="100%" style="height:100%">
+        <tr>
+            <td align="center">
+                <p-progressSpinner></p-progressSpinner>
+            </td>
+        </tr>
+    </table>
+</p-blockUI>

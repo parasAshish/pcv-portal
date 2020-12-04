@@ -1,0 +1,25 @@
+<header class="header-2">
+    <div class="branding">
+        <a class="nav-link">
+            <clr-icon shape="layers" class="has-alert"></clr-icon>
+            <span class="title">Process Component Variation</span>
+        </a>
+    </div>
+    <div class="header-nav">
+        <a class="nav-link nav-text" [routerLink]="['/process']" [routerLinkActive]="['active']">Process</a>
+        <clr-dropdown>
+            <button class="nav-text link-btn" clrDropdownTrigger aria-label="toggle settings menu">
+            Add New
+            <clr-icon class="dropdown-btn" shape="caret down"></clr-icon>
+            </button>
+            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-lrft" style="background-color: white !important;">
+                <a clrDropdownItem [routerLink]="['/new-process']">New Process</a>
+                <a clrDropdownItem [routerLink]="['/new-component']">New Component</a>
+                <a clrDropdownItem [routerLink]="['/new-variation']">New Variation</a>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+    </div>
+    <div class="header-actions">
+        <img src="../../../../assets/logo.svg" class="logo-image">
+    </div>
+</header>
