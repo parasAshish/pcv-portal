@@ -16,3 +16,18 @@
     margin-top: 4px;
     cursor: pointer;
 }
+
+.save-btn {
+    cursor: pointer;
+    color: #005b9f;
+}
+
+.del-btn {
+    cursor: pointer;
+    color: red;
+}
+
+:host>>>.ui-dialog .ui-dialog-content {
+    background-color: #fafafa;
+    padding: 0.8em 1em;
+}

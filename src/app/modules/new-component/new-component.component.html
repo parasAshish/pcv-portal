@@ -11,18 +11,75 @@
         <BR>
         <div>
             <div style="margin-bottom: 0.5em;">
-                <span class="sub-title">Select Variations</span>
-                <clr-icon shape="plus" title="Add Variation" class="add-new" (click)="navigateNewVariation()"></clr-icon>
+                <span class="sub-title">Variations Overview</span>
+                <clr-icon shape="plus" title="Add Variation" class="add-new" (click)="addVariation()"></clr-icon>
             </div>
-            <p-pickList [source]="sourceVariations" [target]="targetVariations" [responsive]="true" sourceHeader="Source Variations" [showSourceControls]="false" [showTargetControls]="false" targetHeader="Target Variations" dragdrop="true">
-                <ng-template let-variation pTemplate="item">
-                    <div class="ui-helper-clearfix">
-                        {{variation.name}}
-                    </div>
+            <p-table [value]="variationsList">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th width="30%">Name</th>
+                        <th width="50%">Description</th>
+                        <th width="10%">Save</th>
+                        <th width="10%">Delete</th>
+                    </tr>
                 </ng-template>
-            </p-pickList>
+                <ng-template pTemplate="body" let-variation>
+                    <tr>
+                        <td pEditableColumn width="30%">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="variation.name">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{variation.name}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td pEditableColumn width="50%">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="variation.desc">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{variation.desc}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td width="10%"><i class="pi pi-save save-btn" (click)="saveVariation(variation)"></i> </td>
+                        <td width="10%"><i class="pi pi-times del-btn" (click)="deleteVariation(variation)"></i></td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                    <tr>
+                        <td [attr.colspan]="'45'">
+                            No records found
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
         <BR>
-        <button pButton pRipple type="button" label="Submit" class="p-button-raised"></button>
+        <button pButton pRipple type="button" label="Add Component" class="p-button-raised" [disabled]="!componentName || !componentDesc" (click)="addNewComponent()"></button>
     </div>
 </div>
+<p-blockUI [blocked]=blockedFlag>
+    <table width="100%" style="height:100%">
+        <tr>
+            <td align="center">
+                <p-progressSpinner></p-progressSpinner>
+            </td>
+        </tr>
+    </table>
+</p-blockUI>
+<p-dialog header="Add Variation" [(visible)]="isAddVariation" [style]="{width: '50vw'}">
+    <div>
+        <input type="text" pInputText [(ngModel)]="variationName" autocomplete="off" placeholder="Name" />
+    </div>
+    <BR>
+    <div>
+        <input type="text" pInputText [(ngModel)]="variationDesc" autocomplete="off" placeholder="Description" />
+    </div>
+    <BR>
+    <button pButton pRipple type="button" label="Add" class="p-button-raised" [disabled]="!variationName || !variationDesc" (click)="addNewVariation()"></button>
+</p-dialog>
+<p-confirmDialog header="Delete Variation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

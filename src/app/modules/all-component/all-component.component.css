@@ -1,0 +1,45 @@
+.contents {
+    padding: 2vh 2vw!important;
+    justify-content: space-evenly;
+}
+
+.sub-title {
+    font-size: 14px;
+    color: #bbbbbb;
+    margin: 0;
+    font-weight: bold;
+    margin-bottom: 2vh;
+}
+
+.add-new {
+    float: right;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.task-container {
+    display: inline-block;
+    position: relative;
+}
+
+.displayFlex {
+    display: inline-flex;
+    margin: 1em 0;
+}
+
+.task-label {
+    display: inline-block;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    font-size: small;
+    min-width: 80px;
+    color: blue;
+}
+
+.arrow {
+    margin-top: 15px;
+}

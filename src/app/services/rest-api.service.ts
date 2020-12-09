@@ -19,7 +19,19 @@ export class RestApiService {
   getComponents(): Observable<any> {
     return this.http.get(this.api.getComponents);
   }
-  createNewProcess(params: any): Observable<any> {
-    return this.http.post(this.api.createNewProcess(params), null);
+  getVariationByComponent(component): Observable<any> {
+    return this.http.get(this.api.getVariationByComponent(component));
+  }
+  createNewProcess(processObj: any): Observable<any> {
+    return this.http.post(this.api.createNewProcess(), processObj);
+  }
+  createNewComponent(componentObj: any): Observable<any> {
+    return this.http.post(this.api.createNewComponent(), componentObj);
+  }
+  updateProcess(processObj: any): Observable<any> {
+    return this.http.put(this.api.updateProcess(processObj), processObj);
+  }
+  updateComponent(compObj: any): Observable<any> {
+    return this.http.put(this.api.updateComponent(compObj), compObj);
   }
 }

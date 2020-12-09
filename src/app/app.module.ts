@@ -22,8 +22,11 @@ import { RestApiService } from './services/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateProcessComponent } from './modules/update-process/update-process.component';
 import { AddNewComponent } from './modules/new-component/new-component.component';
-import { AddNewVariation } from './modules/new-variation/new-variation.component';
+import { AllComponent } from './modules/all-component/all-component.component';
 import { UpdateNewComponent } from './modules/update-component/update-component.component';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -41,7 +44,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     NewProcessComponent,
     UpdateProcessComponent,
     AddNewComponent,
-    AddNewVariation,
+    AllComponent,
     UpdateNewComponent
   ],
   imports: [
@@ -63,9 +66,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     PickListModule,
     BlockUIModule,
     ProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    DialogModule,
+    ConfirmDialogModule
   ],
-  providers: [RestApiService],
+  providers: [RestApiService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

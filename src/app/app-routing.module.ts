@@ -4,7 +4,7 @@ import { ProcessComponent } from './modules/process/process.component';
 import { NewProcessComponent } from './modules/new-process/new-process.component';
 import { UpdateProcessComponent } from './modules/update-process/update-process.component';
 import { AddNewComponent } from './modules/new-component/new-component.component';
-import { AddNewVariation } from './modules/new-variation/new-variation.component';
+import { AllComponent } from './modules/all-component/all-component.component';
 import { UpdateNewComponent } from './modules/update-component/update-component.component';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'process/:id', component: UpdateProcessComponent },
   { path: 'new-process', component: NewProcessComponent },
   { path: 'new-component', component: AddNewComponent },
-  { path: 'new-variation', component: AddNewVariation },
+  { path: 'component', component: AllComponent },
   { path: 'component/:id', component: UpdateNewComponent },
 ];
 

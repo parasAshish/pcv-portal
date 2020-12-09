@@ -13,7 +13,22 @@ export class API {
     get getComponents() {
         return `${this.base}component`;
     }
-    createNewProcess(params: any) {
-        return `${this.base}/users/password/update?${this.getParams(params)}`;
+    getVariationByComponent(component) {
+        return `${this.base}variation?${component.name}`;
+    }
+    // createNewProcess(params: any) {
+    //     return `${this.base}/users/password/update?${this.getParams(params)}`;
+    // }
+    createNewProcess() {
+        return `${this.base}process/create`;
+    }
+    createNewComponent() {
+        return `${this.base}process/component`;
+    }
+    updateProcess(processObj) {
+        return `${this.base}process/${processObj.id}`;
+    }
+    updateComponent(compObj) {
+        return `${this.base}process/${compObj.id}`;
     }
 }
