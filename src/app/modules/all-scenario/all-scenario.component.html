@@ -1,16 +1,16 @@
 <div class="contents">
-    <div class="title">Component Overview</div>
-    <p-table [value]="componentList">
+    <div class="title">Scenario Overview</div>
+    <p-table [value]="scenariosList">
         <ng-template pTemplate="header">
             <tr>
                 <th width="30%">Name</th>
                 <th width="70%">Description</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-component>
+        <ng-template pTemplate="body" let-scenario>
             <tr>
-                <td width="30%"><a [routerLink]="component.name">{{component.name}}</a></td>
-                <td width="70%">{{component.desc}}</td>
+                <td width="30%"><a [routerLink]="scenario.name">{{scenario.name}}</a></td>
+                <td width="70%">{{scenario.desc}}</td>
             </tr>
         </ng-template>
         <ng-template pTemplate="emptymessage" let-columns>

@@ -16,3 +16,15 @@
     margin-top: 4px;
     cursor: pointer;
 }
+
+.sub-title-1 {
+    font-size: 14px;
+    color: #bbbbbb;
+    margin: 0;
+    font-weight: bold;
+}
+
+.displayFlex {
+    display: inline-flex;
+    margin: 0.5em 0 1em 0 !important;
+}

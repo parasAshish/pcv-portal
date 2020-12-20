@@ -1,6 +1,15 @@
 <div class="contents">
     <div class="title">Update Process</div>
+    <div class="sub-title-1">Components Flow</div>
+    <div *ngFor="let item of targetComponents; let indx=index;" class="displayFlex">
+        <div class="task-container" title="Add/Update Component">
+            <div class="task-label"><a [routerLink]="getComponentLink(item)">{{item.name}}</a></div>
+        </div>
+        <i class="pi pi-angle-right arrow" *ngIf="indx < (targetComponents.length - 1)"></i>
+    </div>
+    <BR>
     <div>
+        <div class="sub-title">Process Details</div>
         <div>
             <input type="text" pInputText [(ngModel)]="processName" autocomplete="off" placeholder="Name" />
         </div>
@@ -22,13 +31,6 @@
                 </ng-template>
             </p-pickList>
         </div>
-        <div *ngFor="let item of targetComponents; let indx=index;" class="displayFlex">
-            <div class="task-container" title="Add/Update Component">
-                <div class="task-label"><a [routerLink]="getComponentLink(item)">{{item.name}}</a></div>
-            </div>
-            <i class="pi pi-angle-right arrow" *ngIf="indx < (targetComponents.length - 1)"></i>
-        </div>
-        <BR>
         <BR>
         <button pButton pRipple type="button" label="Update Process" class="p-button-raised" [disabled]="!processName || !processDesc" (click)="updateProcess()"></button>
     </div>

@@ -1,6 +1,7 @@
 <div class="contents">
     <div class="title">Add New Process</div>
     <div>
+        <div class="sub-title">Process Details</div>
         <div>
             <input type="text" pInputText [(ngModel)]="processName" autocomplete="off" placeholder="Name" />
         </div>
@@ -28,7 +29,6 @@
             </div>
             <i class="pi pi-angle-right arrow" *ngIf="indx < (targetComponents.length - 1)"></i>
         </div>
-        <BR>
         <BR>
         <button pButton pRipple type="button" label="Add Process" class="p-button-raised" [disabled]="!processName || !processDesc" (click)="addNewProcess()"></button>
     </div>

@@ -6,6 +6,8 @@ import { UpdateProcessComponent } from './modules/update-process/update-process.
 import { AddNewComponent } from './modules/new-component/new-component.component';
 import { AllComponent } from './modules/all-component/all-component.component';
 import { UpdateNewComponent } from './modules/update-component/update-component.component';
+import { NewScenarioComponent } from './modules/new-scenario/new-scenario.component';
+import { AllScenario } from './modules/all-scenario/all-scenario.component';
 
 const routes: Routes = [
   // App views
@@ -15,8 +17,10 @@ const routes: Routes = [
   { path: 'process/:id', component: UpdateProcessComponent },
   { path: 'new-process', component: NewProcessComponent },
   { path: 'new-component', component: AddNewComponent },
+  { path: 'new-scenario', component: NewScenarioComponent },
   { path: 'component', component: AllComponent },
   { path: 'component/:id', component: UpdateNewComponent },
+  { path: 'scenario', component: AllScenario },
 ];
 
 @NgModule({

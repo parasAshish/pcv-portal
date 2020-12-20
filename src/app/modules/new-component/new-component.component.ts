@@ -33,13 +33,13 @@ export class AddNewComponent implements OnInit {
   }
   addNewVariation() {
     this.isAddVariation = false;
-    this.variationsList.push({ name: this.variationName, desc: this.variationDesc });
+    this.variationsList.push({ variation_name: this.variationName, variation_desc: this.variationDesc });
     this.variationName = '';
     this.variationDesc = '';
   }
   saveVariation(variation) {
     this.variationsList = this.variationsList.map(varObj => {
-      if (varObj.name === variation.name) {
+      if (varObj.variation_name === variation.variation_name) {
         return variation;
       }
       return varObj;
@@ -49,12 +49,13 @@ export class AddNewComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete variation?',
       accept: () => {
-        this.variationsList = this.variationsList.filter((varObj) => varObj.name !== variation.name);
+        this.variationsList = this.variationsList.filter((varObj) => varObj.variation_name !== variation.variation_name);
       }
     });
   }
   addNewComponent() {
-    const reqObj = { name: this.componentName, componentText: this.componentDesc, variations: this.variationsList }
+    this.blockedFlag = true;
+    const reqObj = { name: this.componentName, desc: this.componentDesc, variations: this.variationsList }
     this.restApiService.createNewComponent(reqObj).subscribe(response => {
       this.blockedFlag = false;
       this.route.navigateByUrl('/component');

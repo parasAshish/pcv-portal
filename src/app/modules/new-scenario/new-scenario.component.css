@@ -43,3 +43,8 @@
 .arrow {
     margin-top: 15px;
 }
+
+:host>>>.ui-dropdown {
+    border: 0;
+    width: 100%;
+}

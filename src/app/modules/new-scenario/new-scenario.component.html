@@ -1,0 +1,78 @@
+<div class="contents">
+    <div class="title">Add New Scenario</div>
+    <div>
+        <div class="sub-title">Scenario Details</div>
+        <div>
+            <input type="text" pInputText [(ngModel)]="scenarioName" autocomplete="off" placeholder="Name" />
+        </div>
+        <BR>
+        <div>
+            <input type="text" pInputText [(ngModel)]="scenarioDesc" autocomplete="off" placeholder="Description" />
+        </div>
+        <BR>
+        <div class="sub-title">Select Process</div>
+        <div>
+            <p-dropdown [options]="processList" optionLabel="name" [(ngModel)]="processObj" optionLabel="name"></p-dropdown>
+        </div>
+        <BR>
+        <div>
+            <div style="margin-bottom: 0.5em;">
+                <span class="sub-title">Select Component to Add Variation from each one of them</span>
+            </div>
+            <div *ngFor="let item of processObj.components; let indx=index;" class="displayFlex">
+                <div class="task-container" title="Add Variation">
+                    <div class="task-label"><a [routerLink]="openVariationSelection(item)">{{item.name}}</a></div>
+                </div>
+                <i class="pi pi-angle-right arrow" *ngIf="indx < (processObj.components.length - 1)"></i>
+            </div>
+        </div>
+        <BR>
+        <div>
+            <div style="margin-bottom: 0.5em;">
+                <span class="sub-title">Selected Variations</span>
+            </div>
+            <div *ngFor="let item of selectedVariationsList; let indx=index;" class="displayFlex">
+                <div class="task-container">
+                    <div class="task-label">{{item.variation_name}}</div>
+                </div>
+                <i class="pi pi-angle-right arrow" *ngIf="indx < (selectedVariationsList.length - 1)"></i>
+            </div>
+        </div>
+        <BR>
+        <button pButton pRipple type="button" label="Add New Scenario" class="p-button-raised" [disabled]="!scenarioName" (click)="addNewScenario()"></button>
+    </div>
+</div>
+<p-dialog header="Select Variation" [(visible)]="isAddVariation" [style]="{width: '50vw'}">
+    <div>
+        <BR>
+        <p-table [value]="variationsList" [(selection)]="selectedVariation">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 3rem"></th>
+                    <th width="30%">Name</th>
+                    <th width="50%">Description</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-variation>
+                <tr>
+                    <td>
+                        <p-tableRadioButton [value]="variation"></p-tableRadioButton>
+                    </td>
+                    <td width="30%">{{variation.variation_name}} </td>
+                    <td width="50%">{{variation.variation_desc}} </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <BR>
+        <button pButton pRipple type="button" label="Add Variation" class="p-button-raised" (click)="addVariation()"></button>
+    </div>
+</p-dialog>
+<p-blockUI [blocked]=blockedFlag>
+    <table width="100%" style="height:100%">
+        <tr>
+            <td align="center">
+                <p-progressSpinner></p-progressSpinner>
+            </td>
+        </tr>
+    </table>
+</p-blockUI>

@@ -16,7 +16,7 @@ export class UpdateNewComponent implements OnInit {
   blockedFlag: boolean;
   componentName: any = '';
   componentDesc: any = '';
-  componentObject: any;
+  componentObject: any = {};
   isAddVariation: boolean = false;
   variationName: any = '';
   variationDesc: any = '';
@@ -28,24 +28,15 @@ export class UpdateNewComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.componentName = params['id'];
-      this.getComponentList();
+      this.getComponentByName();
     });
   }
-  getComponentList() {
-    this.restApiService.getComponents().subscribe(response => {
-      this.componentList = response;
-      this.componentObject = this.componentList.find(comp => this.componentName === comp.name);
+  getComponentByName() {
+    this.restApiService.getComponentByName(this.componentName).subscribe(response => {
+      this.blockedFlag = false;
+      this.componentObject = response;
       this.componentDesc = this.componentObject.desc;
-      this.getVariationByComponent(this.componentObject);
-    }, error => {
-      this.blockedFlag = false;
-      console.log(error);
-    });
-  }
-  getVariationByComponent(componentObject) {
-    this.restApiService.getVariationByComponent(componentObject).subscribe(response => {
-      this.blockedFlag = false;
-      this.variationsList = response;
+      this.variationsList = this.componentObject.variations;
     }, error => {
       this.blockedFlag = false;
       console.log(error);
@@ -56,13 +47,14 @@ export class UpdateNewComponent implements OnInit {
   }
   addNewVariation() {
     this.isAddVariation = false;
-    this.variationsList.push({ name: this.variationName, desc: this.variationDesc });
+    this.variationsList.push({ variation_name: this.variationName, variation_desc: this.variationDesc });
     this.variationName = '';
     this.variationDesc = '';
   }
   saveVariation(variation) {
     this.variationsList = this.variationsList.map(varObj => {
-      if (varObj.name === variation.name) {
+      console.log(varObj)
+      if (varObj.variation_name === variation.variation_name) {
         return variation;
       }
       return varObj;
@@ -72,13 +64,14 @@ export class UpdateNewComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete variation?',
       accept: () => {
-        this.variationsList = this.variationsList.filter((varObj) => varObj.name !== variation.name);
+        this.variationsList = this.variationsList.filter((varObj) => varObj.variation_name !== variation.variation_name);
       }
     });
   }
   updateComponent() {
+    this.blockedFlag = true;
     this.componentObject.name = this.componentName;
-    this.componentObject.com = this.componentDesc;
+    this.componentObject.desc = this.componentDesc;
     this.componentObject.variations = Object.assign(this.variationsList, []);
     this.restApiService.updateComponent(this.componentObject).subscribe(response => {
       this.blockedFlag = false;

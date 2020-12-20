@@ -33,21 +33,33 @@ export class NewProcessComponent implements OnInit {
       console.log(error);
     });
     //code to be removed
-    this.sourceComponents = [{
-      "id": 2,
-      "name": "SC3",
-      "variation_name": "Borrower/Co borrower details",
-      "componentText": "Single or Multiple Borrower Lead"
-    }];
+    // this.sourceComponents = [{
+    //   "id": 2,
+    //   "name": "SC1",
+    //   "variation_name": "Loan Marketing",
+    //   "desc": "Lead Creation-Bank Branch-Retail"
+    // }, {
+    //   "id": 3,
+    //   "name": "SC3",
+    //   "variation_name": "Borrower/Co borrower details",
+    //   "desc": "Single or Multiple Borrower Lead"
+    // },
+    // {
+    //   "id": 4,
+    //   "name": "SC5",
+    //   "variation_name": "KYC Verification",
+    //   "desc": "Credit Report-Score below limit"
+    // }];
   }
   getComponentLink(item) {
     return [`/component/${item.name}`];
   }
   addNewProcess() {
+    this.blockedFlag = true;
     const reqObj = { name: this.processName, desc: this.processDesc, components: this.targetComponents }
     this.restApiService.createNewProcess(reqObj).subscribe(response => {
       this.blockedFlag = false;
-      this.sourceComponents = response;
+      this.route.navigateByUrl('/process');
     }, error => {
       this.blockedFlag = false;
       console.log(error);

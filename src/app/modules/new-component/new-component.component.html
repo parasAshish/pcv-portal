@@ -1,6 +1,7 @@
 <div class="contents">
     <div class="title">Add New Component</div>
     <div>
+        <div class="sub-title">Component Details</div>
         <div>
             <input type="text" pInputText [(ngModel)]="componentName" autocomplete="off" placeholder="Name" />
         </div>
@@ -28,20 +29,20 @@
                         <td pEditableColumn width="30%">
                             <p-cellEditor>
                                 <ng-template pTemplate="input">
-                                    <input pInputText type="text" [(ngModel)]="variation.name">
+                                    <input pInputText type="text" [(ngModel)]="variation.variation_name">
                                 </ng-template>
                                 <ng-template pTemplate="output">
-                                    {{variation.name}}
+                                    {{variation.variation_name}}
                                 </ng-template>
                             </p-cellEditor>
                         </td>
                         <td pEditableColumn width="50%">
                             <p-cellEditor>
                                 <ng-template pTemplate="input">
-                                    <input pInputText type="text" [(ngModel)]="variation.desc">
+                                    <input pInputText type="text" [(ngModel)]="variation.variation_desc">
                                 </ng-template>
                                 <ng-template pTemplate="output">
-                                    {{variation.desc}}
+                                    {{variation.variation_desc}}
                                 </ng-template>
                             </p-cellEditor>
                         </td>
@@ -71,7 +72,7 @@
         </tr>
     </table>
 </p-blockUI>
-<p-dialog header="Add Variation" [(visible)]="isAddVariation" [style]="{width: '50vw'}">
+<p-dialog header="Add New Variation" [(visible)]="isAddVariation" [style]="{width: '50vw'}">
     <div>
         <input type="text" pInputText [(ngModel)]="variationName" autocomplete="off" placeholder="Name" />
     </div>
@@ -80,6 +81,6 @@
         <input type="text" pInputText [(ngModel)]="variationDesc" autocomplete="off" placeholder="Description" />
     </div>
     <BR>
-    <button pButton pRipple type="button" label="Add" class="p-button-raised" [disabled]="!variationName || !variationDesc" (click)="addNewVariation()"></button>
+    <button pButton pRipple type="button" label="Add Variation" class="p-button-raised" [disabled]="!variationName || !variationDesc" (click)="addNewVariation()"></button>
 </p-dialog>
 <p-confirmDialog header="Delete Variation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

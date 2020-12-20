@@ -27,6 +27,9 @@ import { UpdateNewComponent } from './modules/update-component/update-component.
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { NewScenarioComponent } from './modules/new-scenario/new-scenario.component';
+import { AllScenario } from './modules/all-scenario/all-scenario.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -45,7 +48,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     UpdateProcessComponent,
     AddNewComponent,
     AllComponent,
-    UpdateNewComponent
+    UpdateNewComponent,
+    NewScenarioComponent,
+    AllScenario
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     ProgressSpinnerModule,
     HttpClientModule,
     DialogModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    DropdownModule
   ],
   providers: [RestApiService, ConfirmationService],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@
         </a>
     </div>
     <div class="header-nav">
+        <a class="nav-link nav-text" [routerLink]="['/scenario']" [routerLinkActive]="['active']">Scenario</a>
         <a class="nav-link nav-text" [routerLink]="['/process']" [routerLinkActive]="['active']">Process</a>
         <a class="nav-link nav-text" [routerLink]="['/component']" [routerLinkActive]="['active']">Component</a>
         <clr-dropdown>
@@ -14,6 +15,7 @@
             <clr-icon class="dropdown-btn" shape="caret down"></clr-icon>
             </button>
             <clr-dropdown-menu *clrIfOpen clrPosition="bottom-lrft" style="background-color: white !important;">
+                <a clrDropdownItem [routerLink]="['/new-scenario']">New Scenario</a>
                 <a clrDropdownItem [routerLink]="['/new-process']">New Process</a>
                 <a clrDropdownItem [routerLink]="['/new-component']">New Component</a>
             </clr-dropdown-menu>

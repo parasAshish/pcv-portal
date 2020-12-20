@@ -26,16 +26,21 @@ export class AllComponent implements OnInit {
       this.blockedFlag = false;
       console.log(error);
     });
-    this.componentList = [{
-      "id": 6,
-      "name": "SC1",
-      "variation_name": "Loan Marketing",
-      "componentText": "Lead Creation-Bank Branch-Retail"
-    }, {
-      "id": 2,
-      "name": "SC3",
-      "variation_name": "Borrower/Co borrower details",
-      "componentText": "Single or Multiple Borrower Lead"
-    }];
+    // this.componentList = [{
+    //   "id": 2,
+    //   "name": "SC1",
+    //   "variation_name": "Loan Marketing",
+    //   "desc": "Lead Creation-Bank Branch-Retail"
+    // }, {
+    //   "id": 3,
+    //   "name": "SC3",
+    //   "variation_name": "Borrower/Co borrower details",
+    //   "desc": "Single or Multiple Borrower Lead"
+    // }, {
+    //   "id": 4,
+    //   "name": "SC5",
+    //   "variation_name": "KYC Verification",
+    //   "desc": "Credit Report-Score below limit"
+    // }];
   }
 }
